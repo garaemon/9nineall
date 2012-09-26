@@ -1,6 +1,6 @@
 // downloader.js
 var YAPLOG_ACCOUNT = "__YAPLOG_ACCOUNT";
-var YAPLOG_PREFIX = "http://yaplog.jp/";
+var YAPLOG_PREFIX = "http://www.yaplog.jp/";
 
 var files_num = 0;
 
