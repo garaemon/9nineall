@@ -41,8 +41,10 @@ function getImagePage(idx) {
         alert("done, please wait downloading: " + files_num + " files!");
     }
     else {
+        var url = YAPLOG_PREFIX + YAPLOG_ACCOUNT + "/image/" + idx;
+        console.log(url);
         $.ajax({
-            url: YAPLOG_PREFIX + YAPLOG_ACCOUNT + "/image/" + idx,
+            url: url,
             success: function(html) {
                 var $html = $(html);
                 $html.find("#mainR clearfix li a img").each(function() {
