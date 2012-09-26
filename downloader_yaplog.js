@@ -47,18 +47,26 @@ function getImagePage(idx) {
             url: url,
             success: function(html) {
                 var $html = $(html);
-                $html.find("#mainR .clearfix li a img").each(function() {
-                    var src = $(this).attr("src");
-                    var large_src = src.slice(0, src.length - 4)
-                        + "_large" + src.slice(-4);
-                    console.log(large_src);
-                    var link = large_src;
-                    $("ol").append('<li><a href="' + link + '">' + link + "</a></li>");
-                    Array.prototype.slice.call(document.querySelectorAll(
-                        'a[href$="' + link + '"]')).some(function(e) {
-                            dispatchMouseEvents({ type:'click', altKey:true, target:e, button:0 });
-                        });
-                    files_num = files_num + 1;
+                $html.find("#mainR .clearfix li a").each(function() {
+                    var link = $(this).attr("href");
+                    $.ajax({
+                        url: link,
+                        success: function(html) {
+                            var link = $(html).find("#imageLink img").attr("src");
+                            $("ol").append('<li><a href="' + link + '">' + link + "</a></li>");
+                            Array.prototype.slice.call(document.querySelectorAll(
+                                'a[href$="' + link + '"]')).some(function(e) {
+                                    dispatchMouseEvents({ type:'click',
+                                                          altKey:true,
+                                                          target:e,
+                                                          button:0 });
+                                });
+                            files_num = files_num + 1;
+                        },
+                        error: function(err) {
+                            console.log("failed to fetch the page");
+                        }
+                    });
                 });
                 getImagePage(idx - 1);
             },
