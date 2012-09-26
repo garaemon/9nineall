@@ -47,7 +47,7 @@ function getImagePage(idx) {
             url: url,
             success: function(html) {
                 var $html = $(html);
-                $html.find("#mainR clearfix li a img").each(function() {
+                $html.find("#mainR .clearfix li a img").each(function() {
                     var src = $(this).attr("src");
                     var large_src = src.slice(0, src.length - 4)
                         + "_large" + src.slice(-4);
