@@ -52,6 +52,7 @@ function getImagePage(idx) {
                     $.ajax({
                         url: link,
                         success: function(html) {
+                            console.log($(html).find("#imageLink img"));
                             var link = $(html).find("#imageLink img").attr("src");
                             $("ol").append('<li><a href="' + link + '">' + link + "</a></li>");
                             Array.prototype.slice.call(document.querySelectorAll(
