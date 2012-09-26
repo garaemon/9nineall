@@ -17,6 +17,7 @@ function getTopImageLinkIndex(cb) {
             var top_link = $(html).find(".entry .txt a").attr("href");
             // like yaplog.jp/lp-hiroro/image/298/312
             var idx = parseInt(top_link.match(/\/([0-9]+)\/[0-9]+$/i)[1], 10);
+            console.log(idx);
             cb(idx);
         },
         error: function(err) {
@@ -48,6 +49,7 @@ function getImagePage(idx) {
                     var src = $(this).attr("src");
                     var large_src = src.slice(0, src.length - 4)
                         + "_large" + src.slice(-4);
+                    console.log(large_src);
                     var link = large_src;
                     $("ol").append('<li><a href="' + link + '">' + link + "</a></li>");
                     Array.prototype.slice.call(document.querySelectorAll(
@@ -59,7 +61,7 @@ function getImagePage(idx) {
                 getImagePage(idx - 1);
             },
             error: function() {
-                error("sorry, network is disconnected");
+                console.log("sorry, network is disconnected");
             }
         });
     }
