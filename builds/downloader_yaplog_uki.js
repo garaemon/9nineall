@@ -1,5 +1,5 @@
 // downloader.js
-var YAPLOG_ACCOUNT = "lp-hiroro";
+var YAPLOG_ACCOUNT = "lp-satakeuki";
 var YAPLOG_PREFIX = "http://yaplog.jp/";
 
 var files_num = 0;
