@@ -1,24 +1,24 @@
-all: ameblo
+all: yaplog
 
-ameblo: builds/downloader_ameblo_mayuri.js builds/downloader_ameblo_honoka.js builds/downloader_ameblo_mai.js builds/downloader_ameblo_sakurako.js builds/downloader_ameblo_yuria.js 
+yaplog: builds/downloader_yaplog_uki.js builds/downloader_yaplog_hirona.js builds/downloader_yaplog_kanae.js builds/downloader_yaplog_umika.js builds/downloader_yaplog_sayaka.js 
 
-builds/downloader_ameblo_mayuri.js: downloader_ameblo.js
+builds/downloader_yaplog_uki.js: downloader_yaplog.js
 	mkdir -p builds
-	sed 's/__AMEBLO_ACCOUNT/mayuri-okumura/g' $^ > $@
+	sed 's/__YAPLOG_ACCOUNT/lp-satakeuki/g' $^ > $@
 
-builds/downloader_ameblo_honoka.js: downloader_ameblo.js
+builds/downloader_yaplog_hirona.js: downloader_yaplog.js
 	mkdir -p builds
-	sed 's/__AMEBLO_ACCOUNT/honoka-kono/g' $^ > $@
+	sed 's/__YAPLOG_ACCOUNT/lp-hiroro/g' $^ > $@
 
-builds/downloader_ameblo_mai.js: downloader_ameblo.js
+builds/downloader_yaplog_kanae.js: downloader_yaplog.js
 	mkdir -p builds
-	sed 's/__AMEBLO_ACCOUNT/mai-okamoto/g' $^ > $@
+	sed 's/__YAPLOG_ACCOUNT/lp-yoshii/g' $^ > $@
 
-builds/downloader_ameblo_sakurako.js: downloader_ameblo.js
+builds/downloader_yaplog_umika.js: downloader_yaplog.js
 	mkdir -p builds
-	sed 's/__AMEBLO_ACCOUNT/sakurako-tanio/g' $^ > $@
+	sed 's/__YAPLOG_ACCOUNT/lp-k-umika/g' $^ > $@
 
-builds/downloader_ameblo_yuria.js: downloader_ameblo.js
+builds/downloader_yaplog_sayaka.js: downloader_yaplog.js
 	mkdir -p builds
-	sed 's/__AMEBLO_ACCOUNT/yuria-kikuhara/g' $^ > $@
+	sed 's/__YAPLOG_ACCOUNT/lp-n-sayaka/g' $^ > $@
 
