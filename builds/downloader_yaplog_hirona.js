@@ -1,5 +1,6 @@
 // downloader.js
 var YAPLOG_ACCOUNT = "lp-hiroro";
+//var YAPLOG_ACCOUNT = "lp-satakeuki";
 var YAPLOG_PREFIX = "http://yaplog.jp/";
 
 var files_num = 0;
@@ -10,14 +11,15 @@ function clearAllEntity() {
 
 function getTopImageLinkIndex(cb) {
     $.ajax({
+        type: "GET",
         url: YAPLOG_PREFIX + YAPLOG_ACCOUNT,
         success: function(html) {
-            var top_link = $(html).find(".entry .txt img").attr("src");
+            var top_link = $(html).find(".entry .txt a").attr("href");
             // like yaplog.jp/lp-hiroro/image/298/312
             var idx = parseInt(top_link.match(/\/([0-9]+)\/[0-9]+$/i)[1], 10);
             cb(idx);
         },
-        error: function() {
+        error: function(err) {
             alert("sorry, network does not work, please retry it");
         }
     });
