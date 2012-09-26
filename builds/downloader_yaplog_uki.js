@@ -60,7 +60,8 @@ function getImagePage(idx) {
                 });
                 getImagePage(idx - 1);
             },
-            error: function() {
+            error: function(err) {
+                console.log(JSON.stringify(err));
                 console.log("sorry, network is disconnected");
             }
         });
